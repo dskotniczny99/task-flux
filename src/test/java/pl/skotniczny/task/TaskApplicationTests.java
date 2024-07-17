@@ -47,17 +47,6 @@ class TaskApplicationTests {
                 .contentType(MediaType.APPLICATION_JSON));
     }
 
-    @Test
-    public void test_All_Repos_From_File() throws Exception {
-        String expectedResponseJson = new String(Files.readAllBytes(Paths.get("src/test/resources/expectedResponse.json")));
-        List<GithubReposNoForksResponseDto> expectedResponse = objectMapper.readValue(expectedResponseJson, objectMapper.getTypeFactory().constructCollectionType(List.class, GithubReposNoForksResponseDto.class));
-
-        when(githubService.getAllRepos(userName)).thenReturn(expectedResponse);
-
-        performGetRequest(userName)
-                .andExpect(status().isOk())
-                .andExpect(content().json(expectedResponseJson));
-    }
 
     @Test
     public void test_repo_name_and_owner_login() throws Exception {

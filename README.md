@@ -140,7 +140,7 @@ Make your changes and test them.
 Submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Contact
 - E-mail: - danielskotniczny1999@gmail.com

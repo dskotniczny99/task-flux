@@ -47,7 +47,7 @@ List GitHub Repositories
 - Endpoint: GET /{userName}/repos
 
 - Headers: Accept: application/json
-This header specifies the media types that the client wants to receive from the server. By including Accept: application/json, the client informs the server that it expects a response in JSON format.
+- This header specifies the media types that the client wants to receive from the server. By including Accept: application/json, the client informs the server that it expects a response in JSON format.
 - Description: Retrieves all repositories for the specified GitHub user that are not forks.
 
 Response Format:

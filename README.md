@@ -131,7 +131,7 @@ Description: when the user exceeded the number of server requests, a 403 respons
     "message": "Rate limit exceeded"
 }
 ```
-## Contributing
+## Contribution
 Contributions are welcome! To contribute:
 
 Fork the repository.

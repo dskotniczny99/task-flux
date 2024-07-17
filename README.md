@@ -20,6 +20,7 @@ Repository Name, Owner Login, For each branch it’s name and last commit sha
 
 - Java 21
 - Spring Boot 3
+- Maven or Gradle
 
 ## Installation
 1. Clone the repository:
@@ -132,12 +133,13 @@ Description: when the user exceeded the number of server requests, a 403 respons
 }
 ```
 ## Contribution
-Contributions are welcome! To contribute:
+Contributions to the project are welcome. Please report issues or suggest new features by opening issues in the repository. To contribute, please follow these steps:
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Make your changes and test them.
-Submit a pull request.
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/YourFeature).
+3. Make your changes and commit them (git commit -m 'Add some feature').
+4. Push to the branch (git push origin feature/YourFeature).
+5. Open a Pull Request.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

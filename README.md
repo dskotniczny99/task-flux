@@ -1,4 +1,4 @@
-# GitHub Repositories API - Task
+# GitHub Repositories API 
 
 ## Description
 

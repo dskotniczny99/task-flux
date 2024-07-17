@@ -3,7 +3,9 @@
 ## Description
 
 This API application allows users to retrieve a list of GitHub repositories for a specified user. Only repositories that are not forks are returned, along with the required information:
-Repository Name, Owner Login, For each branch it’s name and last commit sha
+- Repository Name
+- Owner Login
+- For each branch it’s name and last commit sha
 
 ## Table of Contents
 

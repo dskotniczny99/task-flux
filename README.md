@@ -87,7 +87,6 @@ Test Class
 The tests are implemented in the TaskApplicationTests class located in pl.skotniczny.task. This class uses Spring Boot's testing framework and Mockito to perform integration tests on the API.
 
 Test Methods:
-- test_All_Repos_From_File: Tests the retrieval of all repositories from a JSON file. It verifies that the API returns the expected JSON response.
 
 - test_repo_name_and_owner_login: Tests that the repository name and owner login are correctly returned in the response.
 

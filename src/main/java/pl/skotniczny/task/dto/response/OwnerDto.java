@@ -1,4 +1,4 @@
 package pl.skotniczny.task.dto.response;
 
-public record Owner(String login) {
+public record OwnerDto(String login) {
 }

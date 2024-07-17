@@ -1,4 +1,4 @@
-package pl.skotniczny.task.service;
+package pl.skotniczny.task.dto.response;
 
 import lombok.Builder;
 

@@ -1,0 +1,242 @@
+[
+  {
+    "name": "blog",
+    "owner": {
+      "login": "dskotniczny99"
+    },
+    "branches": [
+      {
+        "name": "master",
+        "commit": {
+          "sha": "dacd541ab0b781f5b9401a192d1038e8c62d9503"
+        }
+      }
+    ]
+  },
+  {
+    "name": "JobOffersProject",
+    "owner": {
+      "login": "dskotniczny99"
+    },
+    "branches": [
+      {
+        "name": "added_mockmvc_request_and_controller_for_offers",
+        "commit": {
+          "sha": "3075f962ca50ba57e3415f1a56b57e15f0f0f169"
+        }
+      },
+      {
+        "name": "adding_error_handler_for_rest_controller_offer_id_not_found",
+        "commit": {
+          "sha": "089ba71f4762733ba86961fddc0290d8bf8f29f3"
+        }
+      },
+      {
+        "name": "adding_handler_exception",
+        "commit": {
+          "sha": "1551b14f43a514ffb9715979e7bb934b63351977"
+        }
+      },
+      {
+        "name": "adding_integration_test_for_http_client_errors",
+        "commit": {
+          "sha": "a6c0b4489ade059f018cb2f0319f39733e86e803"
+        }
+      },
+      {
+        "name": "adding_jwt_security_register_and_login",
+        "commit": {
+          "sha": "deb849bf13411a0be731ef96c11a6ba9d7174c3f"
+        }
+      },
+      {
+        "name": "adding_redis",
+        "commit": {
+          "sha": "ca3db12e614c14c880f8684a7829c69db7b024d3"
+        }
+      },
+      {
+        "name": "adding_scheduler_and_integration_test",
+        "commit": {
+          "sha": "715e55eec83c80739733ea03cb26aed5f3e52ecf"
+        }
+      },
+      {
+        "name": "adding_spring_data_and_repository",
+        "commit": {
+          "sha": "8a1d2fd46af1360732a3b9ade2ee7c5cb4ce6b9c"
+        }
+      },
+      {
+        "name": "adding_steps_for_getting_offers_scheduler_fetching_new_offers",
+        "commit": {
+          "sha": "6a266f93f5628ac9f5966ad23a7e0b465938f158"
+        }
+      },
+      {
+        "name": "adding_validation_rest_controller_and_duplicate_keyt_exception_",
+        "commit": {
+          "sha": "a8a539aa163e127f218a25ae182629896fbbac1b"
+        }
+      },
+      {
+        "name": "adding-spring-boot-and-configuring-integration-tests",
+        "commit": {
+          "sha": "c738fc46260cd1be8cfe783eaee12545bca5d467"
+        }
+      },
+      {
+        "name": "adding-spring-boot-and-setting-up-integration-tests",
+        "commit": {
+          "sha": "b1cca800b0fac25962b2621b723882a6784bfa7d"
+        }
+      },
+      {
+        "name": "login-and-register-module",
+        "commit": {
+          "sha": "6ebec9d23b17f99ea8d292da946ff71815f57914"
+        }
+      },
+      {
+        "name": "master",
+        "commit": {
+          "sha": "96f33a76ae4617e449fb935ea3e90587f77ef804"
+        }
+      },
+      {
+        "name": "offer-module",
+        "commit": {
+          "sha": "649c4835475c6b7e34a6b470f015da3297651341"
+        }
+      },
+      {
+        "name": "swagger",
+        "commit": {
+          "sha": "a818a2d27d79374b8e5f9835b97e6443528b99e6"
+        }
+      }
+    ]
+  },
+  {
+    "name": "songify-project",
+    "owner": {
+      "login": "dskotniczny99"
+    },
+    "branches": [
+      {
+        "name": "master",
+        "commit": {
+          "sha": "2cea2e7d4ef371c1950e5c47057fd36ed49e67c7"
+        }
+      }
+    ]
+  },
+  {
+    "name": "speak-chuck-norris-jokes",
+    "owner": {
+      "login": "dskotniczny99"
+    },
+    "branches": [
+      {
+        "name": "adding_spring",
+        "commit": {
+          "sha": "85762eab14df53325f61f3b92b13d7ffec326365"
+        }
+      },
+      {
+        "name": "implementing_chuck_norris_jokes_api_and_tests",
+        "commit": {
+          "sha": "3a2769139c30a4bc79ddafdab1e70a2df5f73d99"
+        }
+      },
+      {
+        "name": "implementing_frontend",
+        "commit": {
+          "sha": "b326a50710250e312e46b84e206d38336fca79d1"
+        }
+      },
+      {
+        "name": "implementing_hibernate",
+        "commit": {
+          "sha": "26e6248f51d2de9d869d06c1154f127e6594d110"
+        }
+      },
+      {
+        "name": "implementing_merge_two_services_API",
+        "commit": {
+          "sha": "6f84307c8c1aa7f18cc18e5c4ade39e4666cfcb8"
+        }
+      },
+      {
+        "name": "implementing_spring_mvc",
+        "commit": {
+          "sha": "0119fdc5f315a1fede425da7a79eeda68549e687"
+        }
+      },
+      {
+        "name": "implementing_text_to_speach_api_and_tests",
+        "commit": {
+          "sha": "d7e7cdfd23e4529461ccdf34ea7da135bb8a6406"
+        }
+      },
+      {
+        "name": "master",
+        "commit": {
+          "sha": "3f3b6fd8f8bc39f9221831704e61c51fa3b4d27b"
+        }
+      }
+    ]
+  },
+  {
+    "name": "task",
+    "owner": {
+      "login": "dskotniczny99"
+    },
+    "branches": [
+      {
+        "name": "adding_steps_to_get_repos_that_are_not_forks_and_for_each_branch_name_and_last_commit_sha",
+        "commit": {
+          "sha": "5af844f50db233e2d8a9900dc6812f8154ed21f6"
+        }
+      },
+      {
+        "name": "implementing_error_handling",
+        "commit": {
+          "sha": "978cb167424b249f43990b7034efc7a46452010c"
+        }
+      },
+      {
+        "name": "implementing_feign_client_github",
+        "commit": {
+          "sha": "6fcbdf9d9bd611470be0b23ee411a928075568de"
+        }
+      },
+      {
+        "name": "implementing_header_to_rest_controller",
+        "commit": {
+          "sha": "19d49a2b3720b5f15f2845df98009883138119fb"
+        }
+      },
+      {
+        "name": "master",
+        "commit": {
+          "sha": "ba1c34892a3cde4c2c8cd36b85b9b28b58b07e70"
+        }
+      }
+    ]
+  },
+  {
+    "name": "To-DoListApp",
+    "owner": {
+      "login": "dskotniczny99"
+    },
+    "branches": [
+      {
+        "name": "master",
+        "commit": {
+          "sha": "d548b6513b4fd0ae229bc98fb1560cf14412327d"
+        }
+      }
+    ]
+  }
+]

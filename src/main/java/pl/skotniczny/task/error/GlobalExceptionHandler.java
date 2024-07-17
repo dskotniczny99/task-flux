@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     public ResponseEntity<ErrorResponse> handleNotAcceptableException() {
-        log.info("Exception format");
+        log.warn("Exception format");
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.NOT_ACCEPTABLE.value(), "Not acceptable format");
         return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
                 .contentType(MediaType.APPLICATION_JSON)

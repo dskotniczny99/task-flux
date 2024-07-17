@@ -7,7 +7,6 @@ import pl.skotniczny.task.dto.response.GithubAllReposResponseDto;
 import pl.skotniczny.task.dto.response.GithubBranchesResponseDto;
 import pl.skotniczny.task.dto.response.GithubReposNoForksResponseDto;
 import pl.skotniczny.task.github.GithubFeignClient;
-import pl.skotniczny.task.dto.response.Repo;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,14 +21,6 @@ public class GithubService {
     public List<GithubReposNoForksResponseDto> getAllRepos(String userName) {
         List<GithubAllReposResponseDto> allUserRepos = githubFeignClient.getAllUserRepos(userName);
 
-        for (GithubAllReposResponseDto singleRepo : allUserRepos) {
-            Repo repo = new Repo(singleRepo
-                    .owner()
-                    .login(),
-                    singleRepo.name(), singleRepo.fork());
-
-            log.info(String.valueOf(repo));
-        }
         return allUserRepos.stream()
                 .filter(repo -> !repo.fork())
                 .map(repo -> {

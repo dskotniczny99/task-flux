@@ -7,6 +7,7 @@ import pl.skotniczny.task.dto.response.GithubAllReposResponseDto;
 import pl.skotniczny.task.dto.response.GithubBranchesResponseDto;
 import pl.skotniczny.task.dto.response.GithubReposNoForksResponseDto;
 import pl.skotniczny.task.github.GithubFeignClient;
+import pl.skotniczny.task.dto.response.Repo;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,95 +1,71 @@
 package pl.skotniczny.task;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import feign.FeignException;
+
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import pl.skotniczny.task.dto.response.GithubReposNoForksResponseDto;
-import pl.skotniczny.task.dto.response.OwnerDto;
-import pl.skotniczny.task.service.GithubService;
+import org.springframework.test.web.reactive.server.WebTestClient;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.List;
-
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-@SpringBootTest
-@AutoConfigureMockMvc
-class TaskApplicationTests {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureWebTestClient
+@AutoConfigureWireMock(port = 0)
+public class TaskApplicationTests {
 
     @Autowired
-    private MockMvc mockMvc;
-
-    @Mock
-    private GithubService githubService;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    private final String userName = "dskotniczny99";
-
-    private ResultActions performGetRequest(String userName) throws Exception {
-        return mockMvc.perform(get("/" + userName + "/repos")
-                .header("Accept", "application/json")
-                .contentType(MediaType.APPLICATION_JSON));
-    }
-
+    private WebTestClient webTestClient;
 
     @Test
-    public void test_repo_name_and_owner_login() throws Exception {
-        OwnerDto ownerDto = new OwnerDto(userName);
-        GithubReposNoForksResponseDto responseDto = new GithubReposNoForksResponseDto("repoName", ownerDto, Collections.emptyList());
-        List<GithubReposNoForksResponseDto> mockResponse = Collections.singletonList(responseDto);
-
-        when(githubService.getAllRepos(userName)).thenReturn(mockResponse);
-
-        performGetRequest(userName)
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("blog"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].owner.login").value(userName));
+    public void should_return_Repositories_for_user_and_status_200() {
+        String userName = "dskotniczny99";
+        webTestClient.get().uri(userName + "/repos")
+                .exchange()
+                .expectStatus().isOk()
+                .expectHeader().contentType("application/json")
+                .expectBody()
+                .jsonPath("$[0].name").exists()
+                .jsonPath("$[0].owner.login").isEqualTo(userName);
     }
 
     @Test
-    public void test_not_existing_user() throws Exception {
-        String invalidUserName = "@@@@NOT_EXISTING_USER_GITHUB@@@@";
-
-        when(githubService.getAllRepos(invalidUserName)).thenThrow(FeignException.NotFound.class);
-
-        performGetRequest(invalidUserName)
-                .andExpect(status().isNotFound())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.status").value(HttpStatus.NOT_FOUND.value()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("This user does not exist"));
+    public void should_return_not_existing_user_and_status_404() {
+        String notExistingUser = "user123czxczci9fi";
+        webTestClient.get()
+                .uri(notExistingUser + "/repos")
+                .exchange()
+                .expectStatus().isNotFound()
+                .expectHeader().contentType("application/json")
+                .expectBody()
+                .jsonPath("$.status").isEqualTo("404")
+                .jsonPath("$.message").isEqualTo("This user does not exist");
     }
 
     @Test
-    public void test_not_acceptable_format() throws Exception {
-        OwnerDto ownerDto = new OwnerDto(userName);
-        GithubReposNoForksResponseDto responseDto = new GithubReposNoForksResponseDto("repoName", ownerDto, Collections.emptyList());
-        List<GithubReposNoForksResponseDto> mockResponse = Collections.singletonList(responseDto);
-
-        when(githubService.getAllRepos(userName)).thenReturn(mockResponse);
-
-        mockMvc.perform(get("/" + userName + "/repos")
-                        .header("Accept", "application/xml")
-                        .contentType(MediaType.APPLICATION_XML))
-                .andExpect(status().isNotAcceptable())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("Not acceptable format"));
+    public void should_return_not_acceptable_format_and_status_406() {
+        String userName = "dskotniczny99";
+        webTestClient.get().uri(userName + "/repos")
+                .accept(MediaType.APPLICATION_XML)
+                .exchange()
+                .expectStatus().isEqualTo(HttpStatus.NOT_ACCEPTABLE)
+                .expectHeader().contentType(MediaType.APPLICATION_JSON)
+                .expectBody()
+                .jsonPath("$.status").isEqualTo("406")
+                .jsonPath("$.message").isEqualTo("Not acceptable format");
     }
 
+    @Test
+    public void should_return_status_200_and_empty_array() {
+        String userWithoutRepos = "userWithoutRepos";
+        webTestClient.get().uri("/test/repos/" + userWithoutRepos)
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(String.class).isEqualTo("[]");
+
+    }
 
 }
+

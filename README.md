@@ -1,9 +1,11 @@
-# GitHub Repositories API - Task
+# GitHub Repositories API 
 
 ## Description
 
 This API application allows users to retrieve a list of GitHub repositories for a specified user. Only repositories that are not forks are returned, along with the required information:
-Repository Name, Owner Login, For each branch it’s name and last commit sha
+- Repository Name
+- Owner Login
+- For each branch it’s name and last commit sha
 
 ## Table of Contents
 
@@ -87,7 +89,6 @@ Test Class
 The tests are implemented in the TaskApplicationTests class located in pl.skotniczny.task. This class uses Spring Boot's testing framework and Mockito to perform integration tests on the API.
 
 Test Methods:
-- test_All_Repos_From_File: Tests the retrieval of all repositories from a JSON file. It verifies that the API returns the expected JSON response.
 
 - test_repo_name_and_owner_login: Tests that the repository name and owner login are correctly returned in the response.
 
